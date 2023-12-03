@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+	<h2 style="margin-top:20px">Liste des Medicaments |
+		<small>
+			<a href="{{ path('Ajouter')}}">Ajouter</a>
+		</small>
+	</h2>
+	<br>
+	<br>
+	{% for msg in app.flashes('notice') %}
+		{{ msg }}
+	{% endfor %}
+	<section style="background-color: #eee;">
+
+
+		<div class="container py-5">
+
+			<div class="row">
+				{% for med in lesMedicaments %}
+					<div style="margin-top:15px	" class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+						<div class="card" style="border-radius: 30px;">
+
+							<div class="d-flex justify-content-between p-3">
+
+
+								<p class="lead mb-0">{{med.nomMed}}</p>
+							</div>
+							<img src="{{med.image.url}}" style="height:250px" class="card-img-top" alt="Gaming Laptop"/>
+							<div class="card-body">
+
+
+								<div class="d-flex justify-content-between mb-3">
+									<h5 class="mb-0">{{med.categorie}}</h5>
+									<h5 class="text-dark mb-0">DT{{med.price}}</h5>
+								</div>
+
+								<div class="d-flex justify-content-between mb-2">
+									<div class="ms-auto text-warning">
+										<i class="fa fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star-half-alt"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% else %}
+
+					<tr>
+						<td colspan="5">Aucun abonné</td>
+					</tr>
+
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

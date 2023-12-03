@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<nav class="navbar bg-info">
+			<div class="container-fluid">
+				<a class="navbar-brand" style='color:white'>Liste des Ordonnances</a>
+				<div class="d-flex">
+					<a href="{{ path('affiOrd')}}" class="btn btn-warning" style='margin-right:5px'>les ordonnances</a>
+					<a href="{{ path('affi')}}" class="btn btn-warning">les médicaments</a>
+				</div>
+			</div>
+		</nav>
+		<a style="margin-left:1580px;font-size:1.4em;color:red" href="{{path('security_logout')}}">sign out</a>
+
+		{# Run `composer require symfony/webpack-encore-bundle`
+																																           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+		{% endblock %}
+
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</head>
+
+</html>
+
+{% block body %}
+
+	<h1 style="margin-top:50px;margin-left:120px">Users Page</h1>
+	<br>
+	<br>
+	<br>
+	<div style="margin-left:500px">
+		<a href="{{ path('affi')}}" style="width:500px" class="btn btn-warning btn-lg btn-block">afficher les Ordonnances</a>
+		<a href="{{ path('affiOrd')}}" style="width:500px" class="btn btn-warning btn-lg btn-block">afficher les Médicaments</a>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{# templates/Inscription/accueil.html.twig #}
+{% extends "base.html.twig" %}
+{% block title %}
+	{{parent()}}
+	- Edit
+{% endblock %}
+{% block titre %}
+	{{parent()|upper}}
+	- ordonnaces de
+	{{Ordonnances.getnomPatient()}}
+{% endblock %}
+{% block body %}
+
+
+	<h1>entreprise
+		{{Ordonnances.gettotalPrice()}}</h1><br>
+
+
+	<h1>Date d'expiration:{{Ordonnances.getcreatedAt()| date('d-m-Y')}}</h1>
+
+
+	<h3>Medicaments
+	</h3>
+	<ul class='nav  nav-pills nav-stacked'>
+		<h3>Image</h3>
+		<br>
+		<br>
+		<br>
+		{% for Medicaments in listmedicaments %}
+
+			{% if Medicaments.image !=  null %}
+				<img src="{{Medicaments.image.url}}" alt="{{Medicaments.image.alt}}" height="100">
+			{% endif %}
+
+			<div>
+
+				<h4>
+					Description Medicaments</h4>
+				<br>
+			</div>
+			<li>{{Medicaments.nomMed}}</li>
+			<li>{{Medicaments.price}}</li>
+			<li>{{Medicaments.categorie}}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
